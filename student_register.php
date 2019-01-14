@@ -98,7 +98,7 @@
       <p>- OR -</p>
     </div>
 
-    <a href="login.html" class="text-center">I already have a membership</a>
+    <a href="student_login.php" class="text-center">I already have a membership</a>
   </div>
 
     </section>
