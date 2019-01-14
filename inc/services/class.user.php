@@ -1,4 +1,5 @@
 <?php 
+
 	include "db_config.php";
 	class User{
 		protected $db;
@@ -24,6 +25,7 @@
             $values = implode(',',$values);
             $insert .= ' VALUES ('.$values.')';         
            $result = $this->db->query($insert) or die($this->db->error);
+           return true;
     }
 	
 		

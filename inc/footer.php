@@ -4,7 +4,7 @@
       <!-- Anything you want -->
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2019 <a href="#">Collage Admission</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2019 <a href="#">College Admission</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->

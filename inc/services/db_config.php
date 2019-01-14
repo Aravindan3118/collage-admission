@@ -2,7 +2,7 @@
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'root');
-define('DB_DATABASE', 'bus_system');
+define('DB_DATABASE', 'college_admission');
 
 class DB_con {
 	public $connection;
