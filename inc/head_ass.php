@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="inc/includes/dist/css/AdminLTE.min.css">
  
   <link rel="stylesheet" href="inc/includes/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="inc/includes/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
  
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
