@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2019 at 05:47 AM
+-- Generation Time: Jan 16, 2019 at 08:34 PM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.37
 
@@ -25,6 +25,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `college_master`
+--
+
+CREATE TABLE `college_master` (
+  `id` int(11) NOT NULL,
+  `college_name` varchar(255) NOT NULL,
+  `college_email` varchar(255) NOT NULL,
+  `college_password` varchar(255) NOT NULL,
+  `college_mobile` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `college_master`
+--
+
+INSERT INTO `college_master` (`id`, `college_name`, `college_email`, `college_password`, `college_mobile`) VALUES
+(2, 'sample college', 'samplecollegeemail@gmail.com', '123', '7896532174');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_master`
 --
 
@@ -40,8 +61,21 @@ CREATE TABLE `student_master` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `student_master`
+--
+
+INSERT INTO `student_master` (`id`, `student_name`, `email`, `password`, `mobile`, `dob`, `10_avg`, `12_avg`) VALUES
+(5, 'Aravindan Natarajan', 'aravindancadet@gmail.com', '111', '9597927183', '2019-01-11', '77.00', '87.00');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `college_master`
+--
+ALTER TABLE `college_master`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `student_master`
@@ -54,10 +88,16 @@ ALTER TABLE `student_master`
 --
 
 --
+-- AUTO_INCREMENT for table `college_master`
+--
+ALTER TABLE `college_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `student_master`
 --
 ALTER TABLE `student_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
