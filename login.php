@@ -1,7 +1,7 @@
 <?php 
   session_start();
-    include './admin/inc/services/class.user.php';
-    include './admin/inc/head_ass.php';
+    include './inc/services/class.user.php';
+    include './inc/head_ass.php';
     $user = new User();
     if(isset($_POST['submit'])){
 
@@ -21,7 +21,7 @@
           header("location:index.php");
         }
         if ($_SESSION['user_type']=='admin' ||$_SESSION['user_type']=='superadmin') {
-          header("location:admin/index.php");
+          header("location:index.php");
         }
     }
     else{
@@ -66,5 +66,5 @@
   </div>
 
   <?php 
-//   include './admin/inc/footer.php';
+//   include './inc/footer.php';
    ?>

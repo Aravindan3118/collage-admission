@@ -1,6 +1,6 @@
 <?php
   
-   include_once 'admin/inc/services/db_config.php';
+   include_once 'inc/services/db_config.php';
    session_start();
    $conn=mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD,DB_DATABASE);
    $user_check = $_SESSION['login_user'];
