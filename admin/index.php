@@ -1,6 +1,6 @@
 <?php 
-	include './admin/inc/header.php';
-	include './admin/inc/sidebar.php';
+	include 'inc/header.php';
+	include 'inc/sidebar.php';
  ?>
    <div class="content-wrapper">
     <section class="content-header">
@@ -22,5 +22,5 @@
   </div>
 
   <?php 
-  include './admin/inc/footer.php';
+  include 'inc/footer.php';
    ?>

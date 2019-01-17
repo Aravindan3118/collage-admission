@@ -1,21 +1,32 @@
 <?php 
-    include './inc/services/class.user.php';
-    include './inc/head_ass.php';
+  session_start();
+    include './admin/inc/services/class.user.php';
+    include './admin/inc/head_ass.php';
     $user = new User();
     if(isset($_POST['submit'])){
 
       $email = $_POST['email'];
       $password = $_POST['password'];
-      $table='student_master';
+      $table='users';
 	  $rows='*';
 	  $where='email="'.$_POST['email'].'"  and password="'.$password.'"';
       $login = $user->select($table,$rows,$where);
       if($login)
 	{
-        echo '<script>alert("user Valid")</script>';
+        $_SESSION['login_user'] = $email;
+        $_SESSION['user_type'] = $login[0]['user_type'];
+        $_SESSION['user_id'] = $login[0]['id'];
+        
+        if ($_SESSION['user_type']=='student') {
+          header("location:index.php");
+        }
+        if ($_SESSION['user_type']=='admin' ||$_SESSION['user_type']=='superadmin') {
+          header("location:admin/index.php");
+        }
     }
     else{
-        echo '<script>alert("user Invalid")</script>';
+
+        echo '<script>alert("Invalid User")</script>';
     }
 
     }
@@ -48,12 +59,12 @@
       <p>- OR -</p>
     </div>
 
-    <a href="student_register.php" class="text-center">Create Account</a>
+    <a href="register.php" class="text-center">Create Account</a>
   </div>
 
     </section>
   </div>
 
   <?php 
-//   include './inc/footer.php';
+//   include './admin/inc/footer.php';
    ?>

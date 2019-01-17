@@ -1,7 +1,7 @@
 <?php 
-	include './inc/header.php';
-    include './inc/sidebar.php';
-    include './inc/services/class.user.php';
+	include 'inc/header.php';
+    include 'inc/sidebar.php';
+    include 'inc/services/class.user.php';
     $user = new User();
     if(isset($_POST['submit'])){
       $college_name = $_POST['college_name'];
@@ -79,5 +79,5 @@
   </div>
 
   <?php 
-  include './inc/footer.php';
+  include 'inc/footer.php';
    ?>

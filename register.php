@@ -1,21 +1,19 @@
 <?php 
-	// include './inc/header.php';
+	// include './admin/inc/header.php';
     // include './inc/sidebar.php';
 
-    include './inc/services/class.user.php';
-    include './inc/head_ass.php';
+    include './admin/inc/services/class.user.php';
+    include './admin/inc/head_ass.php';
     $user = new User();
     if(isset($_POST['submit'])){
-      $student_name = $_POST['student_name'];
+      $firstname = $_POST['student_name'];
       $email = $_POST['email'];
       $password = $_POST['password'];
       $mobile_num = $_POST['mobile_num'];
-      $dob = $_POST['dob'];
-      $sslcavg = $_POST['sslcavg'];      
-      $hslccavg = $_POST['hslccavg'];
-      $table1= 'student_master';
-      $row='student_name,email,password,mobile,dob,10_avg,12_avg';
-      $insert = $user->insert($table1,array($student_name,$email,$password,$mobile_num,$dob,$sslcavg,$hslccavg),$row);
+
+      $table1= 'users';
+      $row='firstname,email,password,mobile';
+      $insert = $user->insert($table1,array($firstname,$email,$password,$mobile_num),$row);
       
       if($insert){
         echo '<script>alert("Student Registered")</script>';
@@ -56,36 +54,8 @@
         <input type="text" class="form-control" name='mobile_num' placeholder="Mobile Number">
         <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
-        <input type="date" class="form-control" name='dob' placeholder="D.O.B">
-        <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="number" class="form-control" name='sslcavg' placeholder="sslc Average">
-        <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="number" class="form-control" name='hslccavg' placeholder="hslcc Average">
-        <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
-      </div>
-      <!-- <div class="form-group has-feedback">
-      <select class="form-control" name='school name'>
-      <option value="">------------------------Select College-------------------------</option>
-      <option value="College1">College1</option>
-      <option value="College2">College2</option>
-      <option value="College3">College3</option>
-      <option value="College4">College4</option>
-    </select>
-      
-      </div> -->
       <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> I agree to the <a href="#">terms</a>
-            </label>
-          </div>
-        </div>
+      
         <!-- /.col -->
         <div class="col-xs-4">
           <button type="submit" name='submit' class="btn btn-primary btn-block btn-flat">Register</button>
@@ -98,12 +68,12 @@
       <p>- OR -</p>
     </div>
 
-    <a href="student_login.php" class="text-center">I already have a membership</a>
+    <a href="login.php" class="text-center">I already have a account</a>
   </div>
 
     </section>
   </div>
 
   <?php 
-//   include './inc/footer.php';
+//   include './admin/inc/footer.php';
    ?>
