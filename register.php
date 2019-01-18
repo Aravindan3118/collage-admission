@@ -2,8 +2,8 @@
 	// include './admin/inc/header.php';
     // include './inc/sidebar.php';
 
-    include './admin/inc/services/class.user.php';
-    include './admin/inc/head_ass.php';
+    include './inc/services/class.user.php';
+    include './inc/head_ass.php';
     $user = new User();
     if(isset($_POST['submit'])){
       $firstname = $_POST['student_name'];
@@ -75,5 +75,5 @@
   </div>
 
   <?php 
-//   include './admin/inc/footer.php';
+//   include './inc/footer.php';
    ?>
