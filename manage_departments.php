@@ -1,5 +1,8 @@
 <?php 
     include_once 'session.php';
+    if($_SESSION['user_type'] != 'college'){
+      header('location:index.php');
+    }
     include_once 'inc/header.php';
     include_once 'inc/sidebar.php';
     include_once 'inc/services/class.user.php';
@@ -7,8 +10,7 @@
     if(isset($_GET['id'])){
       $table='department_master';
       $where='id ="'.$_GET['id'].'"';
-      $details = $user->select($table,$where); 
-      
+      $details = $user->select($table,$where);      
       if($details){
         foreach ($details as $d) {
           $course_name = $d['course_name'];

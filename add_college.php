@@ -1,5 +1,9 @@
 <?php 
-	include 'inc/header.php';
+    include_once './session.php';
+    if($_SESSION['user_type'] != 'superadmin'){
+      header('location:index.php');
+    }
+  	include 'inc/header.php';
     include 'inc/sidebar.php';
     include 'inc/services/class.user.php';
     $user = new User();

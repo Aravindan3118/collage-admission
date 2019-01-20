@@ -33,8 +33,20 @@
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="index.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li><a href="college_master.php"><i class="fa fa-link"></i> <span>Manage Colleges</span></a></li>
-        <li><a href="departments_master.php"><i class="fa fa-link"></i> <span>Manage Departments</span></a></li>
+        <?php 
+        if($_SESSION['user_type'] == 'superadmin'){
+          ?>
+            <li><a href="college_master.php"><i class="fa fa-link"></i> <span>Manage Colleges</span></a></li>
+          <?php          
+        }
+        ?>
+        <?php 
+        if($_SESSION['user_type'] == 'college'){
+          ?>
+            <li><a href="departments_master.php"><i class="fa fa-link"></i> <span>Manage Departments</span></a></li>
+          <?php          
+        }
+        ?>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
