@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2019 at 07:49 AM
+-- Generation Time: Jan 20, 2019 at 08:36 AM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.37
 
@@ -37,13 +37,6 @@ CREATE TABLE `college_master` (
   `user_type` varchar(100) NOT NULL DEFAULT 'college'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `college_master`
---
-
-INSERT INTO `college_master` (`id`, `college_name`, `college_email`, `college_password`, `college_mobile`, `user_type`) VALUES
-(2, 'sample college', 'samplecollegeemail@gmail.com', '123', '7896532174', 'college');
-
 -- --------------------------------------------------------
 
 --
@@ -60,12 +53,18 @@ CREATE TABLE `department_master` (
   `12avg_needed` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `department_master`
+-- Table structure for table `student_mark`
 --
 
-INSERT INTO `department_master` (`id`, `college_id`, `course_name`, `total_seats`, `booked_seats`, `10avg_needed`, `12avg_needed`) VALUES
-(1, 2, 'computer science', 60, 0, '60.00', '60.00');
+CREATE TABLE `student_mark` (
+  `id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `10th_avg` decimal(5,2) NOT NULL,
+  `12th_avg` decimal(5,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -87,7 +86,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `email`, `password`, `mobile`, `user_type`) VALUES
-(1, 'new stu', 'newstu@gmail.com', '111', '9595959559', 'student'),
 (2, 'Aravindan Natarajan', 'aravindancadet@gmail.com', '111', '9597927183', 'superadmin');
 
 --
@@ -106,6 +104,13 @@ ALTER TABLE `college_master`
 ALTER TABLE `department_master`
   ADD PRIMARY KEY (`id`),
   ADD KEY `college_id` (`college_id`);
+
+--
+-- Indexes for table `student_mark`
+--
+ALTER TABLE `student_mark`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `student_id` (`student_id`);
 
 --
 -- Indexes for table `users`
@@ -127,7 +132,13 @@ ALTER TABLE `college_master`
 -- AUTO_INCREMENT for table `department_master`
 --
 ALTER TABLE `department_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `student_mark`
+--
+ALTER TABLE `student_mark`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -144,6 +155,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `department_master`
   ADD CONSTRAINT `department_master_ibfk_1` FOREIGN KEY (`college_id`) REFERENCES `college_master` (`id`);
+
+--
+-- Constraints for table `student_mark`
+--
+ALTER TABLE `student_mark`
+  ADD CONSTRAINT `student_mark_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

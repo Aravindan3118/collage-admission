@@ -18,7 +18,7 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-    <a href="add_departments.php"><button class="btn btn-primary">Add departments</button></a>
+    <a href="manage_departments.php"><button class="btn btn-primary">Add departments</button></a>
     <div class="box">
             <div class="box-header text-center">
               <h3 class="box-title">Departments list</h3>
@@ -33,7 +33,8 @@
                   <th>booked seats</th>
                   <th>Available seats</th>
                   <th>10th average needed</th>
-                  <th>12th average needed</th>               
+                  <th>12th average needed</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -53,6 +54,10 @@
                   <td><?php echo $d['total_seats'] - $d['booked_seats'];?></td>
                   <td><?php echo $d['10avg_needed'];?></td>
                   <td><?php echo $d['12avg_needed'];?></td>
+                  <td>
+                  <a href="manage_departments.php?id=<?php echo $d['id'];?>"><button class="btn btn-primary"><i class="fa fa-edit "></i></button></a>
+                  <a href="delete_department.php"><button class="btn btn-primary"><i class="fa fa-trash "></i></button></a>
+                  </td>
                 </tr>
                     <?php }} else{
                         ?>
@@ -71,7 +76,8 @@
                   <th>booked seats</th>
                   <th>Available seats</th>
                   <th>10th average needed</th>
-                  <th>12th average needed</th>    
+                  <th>12th average needed</th>
+                  <th>Action</th> 
                 </tr>
                 </tfoot>
               </table>

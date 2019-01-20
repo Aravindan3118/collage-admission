@@ -50,7 +50,7 @@
         {    
 		$q .= ' ORDER BY '.$order;
         }
-		
+		// echo $q;
 		$result= $this->db->query($q);
 		
 		while($row= mysqli_fetch_array($result))
