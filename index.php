@@ -59,22 +59,21 @@
                 <tbody>
                 <?php 
                     
-                    $table='department_master';                   
+                    $table='department_master d join college_master c on d.college_id = c.id';                   
                     $where='10avg_needed <="'.$_SESSION['student_10_avg'].'" and 12avg_needed <="'.$_SESSION['student_12_avg'].'" ';											
-                    $details = $user->select($table,$rows='*',$where); 
+                    $details = $user->select($table,$rows='c.college_name,d.*',$where); 
                     if($details){
 					foreach($details as $d)
 					{
 				?>
                 <tr>
-                <td>college_name</td>
+                <td><?php echo $d['college_name'];?></td>
                 <td><?php echo $d['course_name'];?></td>
                    
                    <td><?php echo $d['total_seats'] - $d['booked_seats'];?></td>
                   
                    <td>
-                   <a href="manage_departments.php?id=<?php echo $d['id'];?>"><button class="btn btn-primary"><i class="fa fa-edit "></i></button></a>
-                   <a href="delete_department.php"><button class="btn btn-primary"><i class="fa fa-trash "></i></button></a>
+                   <a href="book_college.php?id=<?php echo $d['id'];?>"><button class="btn btn-primary"><i class="fa fa-edit "></i></button></a>
                    </td>
                 </tr>
           <?php }}
