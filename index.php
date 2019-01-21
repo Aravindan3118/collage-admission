@@ -22,17 +22,7 @@
 <div class="content-wrapper">
     <div class="container">
       <!-- student Content Header (Page header) -->
-      <section class="content-header">
-        <!-- <h1>
-          Top Navigation
-          <small>Example 2.0</small>
-        </h1> -->
-        <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="#">Layout</a></li>
-          <li class="active">Top Navigation</li>
-        </ol>
-      </section>
+      
 
       <!-- Main content -->
       <section class="content">
@@ -50,6 +40,60 @@
           if($details){            
               $_SESSION['student_10_avg'] = $details[0]['10th_avg'];
               $_SESSION['student_12_avg'] = $details[0]['12th_avg'];
+              ?>
+               <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Colleges For You</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                   <th>College Name</th>
+                  <th>Department</th>
+                  <th>Available seats</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php 
+                    
+                    $table='department_master';                   
+                    $where='10avg_needed <="'.$_SESSION['student_10_avg'].'" and 12avg_needed <="'.$_SESSION['student_12_avg'].'" ';											
+                    $details = $user->select($table,$rows='*',$where); 
+                    if($details){
+					foreach($details as $d)
+					{
+				?>
+                <tr>
+                <td>college_name</td>
+                <td><?php echo $d['course_name'];?></td>
+                   
+                   <td><?php echo $d['total_seats'] - $d['booked_seats'];?></td>
+                  
+                   <td>
+                   <a href="manage_departments.php?id=<?php echo $d['id'];?>"><button class="btn btn-primary"><i class="fa fa-edit "></i></button></a>
+                   <a href="delete_department.php"><button class="btn btn-primary"><i class="fa fa-trash "></i></button></a>
+                   </td>
+                </tr>
+          <?php }}
+          ?>
+                </tbody>
+                <tfoot>
+                <tr>
+                   <th>College Name</th>
+                  <th>Department</th>
+                  <th>Available seats</th>
+                  <th>Action</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+              <?php
           }
           else{
             // echo 'Please Provide Mark';

@@ -10,7 +10,7 @@
     if(isset($_GET['id'])){
       $table='department_master';
       $where='id ="'.$_GET['id'].'"';
-      $details = $user->select($table,$where);      
+      $details = $user->select($table,$rows='*',$where);      
       if($details){
         foreach ($details as $d) {
           $course_name = $d['course_name'];

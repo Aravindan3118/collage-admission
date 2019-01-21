@@ -44,8 +44,10 @@
                 <tbody>
                 <?php 
                     
-                    $table='department_master';												
-                    $details = $user->select($table); 
+                    $table='department_master';	
+                   
+                    $where='college_id ="'.$_SESSION['college_id'].'"';											
+                    $details = $user->select($table,$rows='*',$where); 
                     if($details){
 					foreach($details as $d)
 					{
