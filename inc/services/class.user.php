@@ -109,6 +109,11 @@
      $result = $this->db->query($update) or die($this->db->error);
        
     }
+
+    public function mailer($send_to,$subject,$body)
+    {
+        include_once 'mailtest.php';
+    }
 	
 	
 	

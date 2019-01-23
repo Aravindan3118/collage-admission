@@ -16,6 +16,10 @@
     $table= 'book_details';
     $row='student_id,department_id';
     $insert = $user->insert($table,array($_SESSION['user_id'],$_POST['depid']),$row);
+    $send_to = $_POST['collegeemail'];
+    $subject = 'Student Seat booking';
+    $body = 'New Student Has booked the seats in Your college';
+    $sendmail = $user->mailer($send_to,$subject,$body);
     echo '<script>alert("Submitted Successfully");
     window.location.href="index.php";</script>';
     
@@ -29,6 +33,7 @@
   
   $college_name = $details[0]['college_name'];
   $course_name = $details[0]['course_name'];
+  $college_email = $details[0]['college_email'];
 //   $college_id = $details[0]['college_id'];
 ?>
 
@@ -38,9 +43,11 @@
       <section class="content">          
         <h3>College Name : <?php echo $college_name; ?></h3>
         <h3>course Name : <?php echo $course_name; ?></h3>
+        <h3>College mail address : <?php echo $college_email; ?></h3>
         <p>The Seat will be booked Only for 2 days please visit college within 2 days</p>
         <form action="" method='post'>
         <input type="hidden" name="depid" value="<?php echo $dep_id; ?>">
+        <input type="hidden" name="collegeemail" value="<?php echo $college_email; ?>">
            <button type='submit' name='book_seat' class='btn btn-info'>Confirm Seat</button>
         </form>
       </section>
