@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2019 at 08:15 PM
+-- Generation Time: Jan 24, 2019 at 07:58 AM
 -- Server version: 5.7.11
--- PHP Version: 5.6.37
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,7 +41,9 @@ CREATE TABLE `book_details` (
 --
 
 INSERT INTO `book_details` (`id`, `student_id`, `department_id`, `booked_date`, `is_expired`) VALUES
-(2, 3, 10, '2019-01-22 00:40:26', 0);
+(18, 3, 14, '2019-01-24 12:26:07', 0),
+(19, 3, 10, '2019-01-24 12:26:19', 0),
+(20, 5, 12, '2019-01-24 12:27:32', 0);
 
 -- --------------------------------------------------------
 
@@ -63,7 +65,7 @@ CREATE TABLE `college_master` (
 --
 
 INSERT INTO `college_master` (`id`, `college_name`, `college_email`, `college_password`, `college_mobile`, `user_type`) VALUES
-(3, 'krishna College', 'skasc567@gmail.com', '567', '7412589630', 'college'),
+(3, 'krishna College', 'aravindancadet@gmail.com', '567', '7412589630', 'college'),
 (4, 'psg', 'psg789@gmail.com', '789', '8523697410', 'college'),
 (5, 'newcollege', 'newcollege222@gmail.com', '222', '8523690147', 'college');
 
@@ -115,7 +117,8 @@ CREATE TABLE `student_mark` (
 INSERT INTO `student_mark` (`id`, `student_id`, `10th_avg`, `12th_avg`) VALUES
 (7, 3, '61.00', '62.00'),
 (8, 3, '61.00', '62.00'),
-(9, 3, '61.00', '62.00');
+(9, 3, '61.00', '62.00'),
+(10, 5, '75.00', '75.00');
 
 -- --------------------------------------------------------
 
@@ -138,7 +141,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstname`, `email`, `password`, `mobile`, `user_type`) VALUES
 (2, 'Aravindan Natarajan', 'aravindancadet@gmail.com', '111', '9597927183', 'superadmin'),
-(3, 'student 1', 'student1@gmail.com', '111', '8523697410', 'student');
+(3, 'student 1', 'student1@gmail.com', '111', '8523697410', 'student'),
+(5, 'student 2', 'student2@gmail.com', '222', '88997744115', 'student');
 
 --
 -- Indexes for dumped tables
@@ -186,32 +190,27 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `book_details`
 --
 ALTER TABLE `book_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `college_master`
 --
 ALTER TABLE `college_master`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `department_master`
 --
 ALTER TABLE `department_master`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
 --
 -- AUTO_INCREMENT for table `student_mark`
 --
 ALTER TABLE `student_mark`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --

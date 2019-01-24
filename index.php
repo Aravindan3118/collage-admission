@@ -60,7 +60,7 @@
                 <?php 
                     
                     $table='department_master d join college_master c on d.college_id = c.id';                   
-                    $where='10avg_needed <="'.$_SESSION['student_10_avg'].'" and 12avg_needed <="'.$_SESSION['student_12_avg'].'" ';											
+                    $where='d.10avg_needed <="'.$_SESSION['student_10_avg'].'" and d.12avg_needed <="'.$_SESSION['student_12_avg'].'" and d.id <> all(select department_id from book_details where student_id = "'.$_SESSION['user_id'].'")   ';											
                     $details = $user->select($table,$rows='c.college_name,d.*',$where); 
                     if($details){
 					foreach($details as $d)
