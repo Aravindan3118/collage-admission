@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home<span class="sr-only">(current)</span></a></li>
-            <li><a href="booked_seats">My Seats</a></li>
+            <li><a href="booked_seats.php">My Seats</a></li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
